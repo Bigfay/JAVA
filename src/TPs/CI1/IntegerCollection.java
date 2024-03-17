@@ -2,6 +2,7 @@ package TPs.CI1;
 
 import java.util.List;
 import java.util.ArrayList;
+import TPs.Exceptions.*;
 
 public class IntegerCollection {
 
@@ -21,13 +22,22 @@ public class IntegerCollection {
     }
 
     /**
-     * ToDo
+     * @requires valeur de i != null
+     * @return l'index de i s'il est présent dans la collection
+     * @throws MissingIntegerException si i n'est pas présent dans la collection
+     * 
      */
-    public int searchInt(Integer i){
+    public int searchInt(Integer i) throws MissingIntegerException{
+       try{
         return liste.indexOf(i);
+
+    } catch (MissingIntegerException e){
+        return -1;
+    }
         /* Cette implémentation actuelle retourne -1 si l'élément est manquant.
          * Todo Modifiez l'implémentation afin de retourner soit l'index de i soit MissingIntegerException.
          */
+
     }
 
     // Pas besoin de spécifier expliqué en cours théorique

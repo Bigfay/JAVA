@@ -21,9 +21,7 @@ public class IntegerCollection {
     }
 
     /**
-     * @requires valeur != non null
-     * @return index correspondant à la valeur
-     * @throws -1 si la valeur n'existe pas dans la collection
+     * ToDo
      */
     public int searchInt(Integer i){
         return liste.indexOf(i);
