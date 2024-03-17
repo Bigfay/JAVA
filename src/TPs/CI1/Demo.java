@@ -1,5 +1,4 @@
 package TPs.CI1;
-
 import TPs.Exceptions.*;
 
 public class Demo {

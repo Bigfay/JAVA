@@ -2,7 +2,11 @@ package TPs.CI1;
 
 import java.util.List;
 import java.util.ArrayList;
+
+import TPs.Exceptions.MonExceptionAMoiException;
+//import TPs.Exceptions.MissingIntegerException;
 import TPs.Exceptions.*;
+
 
 public class IntegerCollection {
 
@@ -28,17 +32,18 @@ public class IntegerCollection {
      * 
      */
     public int searchInt(Integer i) throws MissingIntegerException{
-       try{
-        return liste.indexOf(i);
-
-    } catch (MissingIntegerException e){
-        return -1;
+     
+    if (liste.indexOf(i)==-1)
+    {
+        throw new MissingIntegerException ("MissingIntegerException"); 
     }
+    else return liste.indexOf(i);
+}
         /* Cette implémentation actuelle retourne -1 si l'élément est manquant.
          * Todo Modifiez l'implémentation afin de retourner soit l'index de i soit MissingIntegerException.
          */
 
-    }
+    
 
     // Pas besoin de spécifier expliqué en cours théorique
     @Override
@@ -53,7 +58,7 @@ public class IntegerCollection {
         throw new NullPointerException();
         /*
          * Pourquoi l'appel à cette méthode exceptionGenerator ne pose pas de souci au compilateur?
-         * Réponse : ToDo
+         * Réponse : NullPoinyrtException est une exception non vérifiée par le compilateur par définition
          * Il semblerait que ce soit voulu et didactique! ToDo Effectuez les spécifications en suivant les recommendations
          * vues aux cours de CPOO.
          */
@@ -61,10 +66,15 @@ public class IntegerCollection {
     }
 
     /**
-     * ToDo
+     * @throws MonExceptionAMoiException
      */
-    public void captureEtRelance(){
-        exceptionGenerator();
+    public void captureEtRelance()throws MonExceptionAMoiException{
+
+        try {exceptionGenerator();}
+        catch (NullPointerException e){
+            throw new MonExceptionAMoiException();
+
+        }
         /* Todo Capturez l'exception lancée lors de l'appel à exceptionGenerator et lancez une nouvelle exception
          * non-vérifiée MonExceptionAMoiException.
          */

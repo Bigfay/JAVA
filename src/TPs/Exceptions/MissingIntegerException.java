@@ -3,7 +3,7 @@ package TPs.Exceptions;
 /**
  * @Overview : exception non-vérifiée
  */
-public class MissingIntegerException extends RuntimeException{
+public class MissingIntegerException extends Exception{
     public MissingIntegerException() {
         super();
     }
