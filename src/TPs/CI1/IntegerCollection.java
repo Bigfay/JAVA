@@ -67,8 +67,6 @@ public class IntegerCollection {
     }
 
     /**
-     * @requires il faut que l'exception reçue soit du type MonExceptionAMoi
-     * @effects en théorie rien puisque dans 100% des cas exceptionGenerator génrera une exception
      * @throws MonExceptionAMoiException provoquée par NullPointerException venant de la méthode exceptionGenerator
      */
     public void captureEtRelance()throws MonExceptionAMoiException{
