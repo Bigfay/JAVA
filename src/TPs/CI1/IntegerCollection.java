@@ -3,7 +3,7 @@ package TPs.CI1;
 import java.util.List;
 import java.util.ArrayList;
 
-import TPs.Exceptions.MonExceptionAMoiException;
+//import TPs.Exceptions.MonExceptionAMoiException;
 //import TPs.Exceptions.MissingIntegerException;
 import TPs.Exceptions.*;
 
@@ -35,7 +35,7 @@ public class IntegerCollection {
      
     if (liste.indexOf(i)==-1)
     {
-        throw new MissingIntegerException ("MissingIntegerException"); 
+        throw new MissingIntegerException ("IntegerCollection.searchInt(Integer)"); 
     }
     else return liste.indexOf(i);
 }
@@ -52,27 +52,30 @@ public class IntegerCollection {
     }
 
     /**
-     * ToDo
+     * @throws NullPointerException dans tous les cas
      */
-    private void exceptionGenerator(){
-        throw new NullPointerException();
+    private void exceptionGenerator() throws NullPointerException{
+        throw new NullPointerException("IntegerCollection.exceptionGenerator()");
         /*
          * Pourquoi l'appel à cette méthode exceptionGenerator ne pose pas de souci au compilateur?
-         * Réponse : NullPoinyrtException est une exception non vérifiée par le compilateur par définition
          * Il semblerait que ce soit voulu et didactique! ToDo Effectuez les spécifications en suivant les recommendations
          * vues aux cours de CPOO.
+         * Réponse ci-dessous:
+         * NullPointerException étant une exception non vérifiée par définition le compilateur laisse passer
          */
 
     }
 
     /**
-     * @throws MonExceptionAMoiException
+     * @requires il faut que l'exception reçue soit du type MonExceptionAMoi
+     * @effects en théorie rien puisque dans 100% des cas exceptionGenerator génrera une exception
+     * @throws MonExceptionAMoiException provoquée par NullPointerException venant de la méthode exceptionGenerator
      */
     public void captureEtRelance()throws MonExceptionAMoiException{
 
         try {exceptionGenerator();}
         catch (NullPointerException e){
-            throw new MonExceptionAMoiException();
+            throw new MonExceptionAMoiException("IntegerCollection.captureEtRelance()");
 
         }
         /* Todo Capturez l'exception lancée lors de l'appel à exceptionGenerator et lancez une nouvelle exception

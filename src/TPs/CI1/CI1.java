@@ -21,17 +21,17 @@ public class CI1 {
             }
             catch (Exception e1)
             {
-                System.out.println(e1.getMessage() + " capturée");
+                System.out.println(e1.getClass().getSimpleName() + " capturée");
             }
         }
 
         try {
             ic.captureEtRelance();
             // Le programme ne s'exécute pas correctement !
-        } catch (Exception e2) {
-            System.out.println(e2.getMessage() + " capturée");
-        }
+         } catch (MonExceptionAMoiException e2) {
 
+           System.out.println(e2.getClass().getSimpleName()+ " capturée");
+        }
         /*
          * En lisant la sortie dans le terminal vous comprenez que des exceptions
          * empêchent le programme

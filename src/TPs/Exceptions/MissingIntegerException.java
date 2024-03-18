@@ -1,7 +1,7 @@
 package TPs.Exceptions;
 
 /**
- * @Overview : exception non-vérifiée
+ * @Overview : exception vérifiée
  */
 public class MissingIntegerException extends Exception{
     public MissingIntegerException() {
